@@ -20,21 +20,25 @@ public class UnsortedPriorityQueue<K,V> extends AbstractPriorityQueue<K,V> {
         return small;
     }
 
-    public Entry<K,V> min( ) {
-        if (list.isEmpty( )) return null;
-        return findMin( ).getElement( );
+    public Entry<K,V> min() {
+        if (list.isEmpty()) return null;
+        return findMin().getElement();   // return list.first().getElement();
     }
 
-    public Entry<K,V> removeMin( ) {
-        if (list.isEmpty( )) return null;
-        return list.remove(findMin( ));    }
+    public Entry<K,V> removeMin() {
+        if (list.isEmpty()) return null;
+        return list.remove(findMin());    }
 
-    public int size( ) { return list.size( ); }
+    public int size() { return list.size( ); }
 
     @Override
     public Entry<K,V> insert(Object key, Object value) throws IllegalArgumentException {
         checkKey((K)key);
         Entry<K,V> newest = new PQEntry<K,V>((K)key, (V)value);
+        Position<Entry<K,V>> small = list.first();
+        if (compare(newest, list.first().getElement()) < 0)
+            list.addFirst(newest);
+
         list.addLast(newest);
         return newest;
     }

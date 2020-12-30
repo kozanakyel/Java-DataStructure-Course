@@ -25,17 +25,21 @@ public class SortedPriorityQueue<K,V> extends AbstractPriorityQueue<K,V>{
         return newest;
     }
 
-    public Entry<K,V> min( ) {
-        if (list.isEmpty( )) return null;
-        return list.first( ).getElement( );
+    public Entry<K,V> min() {
+        if (list.isEmpty()) return null;
+        return list.first().getElement( );
     }
 
-    public Entry<K,V> removeMin( ) {
-        if (list.isEmpty( )) return null;
-        return list.remove(list.first( ));
+    public Entry<K,V> removeMin() {
+        if (list.isEmpty()) return null;
+        return list.remove(list.first());
     }
 
-    public int size( ) { return list.size( ); }
+    public int size() { return list.size(); }
+
+    public String toString(){
+        return list.toString();
+    }
 
     public static void main(String[] args){
         SortedPriorityQueue<Integer, String> list = new SortedPriorityQueue<>();

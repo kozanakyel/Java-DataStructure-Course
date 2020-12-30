@@ -3,7 +3,7 @@ package com.priorityqueue;
 import java.util.Comparator;
 
 public abstract class AbstractPriorityQueue<K,V>
-        implements PriorityQueue{
+        implements PriorityQueue<K,V>{
     protected static class PQEntry<K,V> implements Entry<K,V>{
         private K k;
         private V v;
@@ -26,6 +26,10 @@ public abstract class AbstractPriorityQueue<K,V>
 
         protected void setValue(V v) {
             this.v = v;
+        }
+
+        public String toString(){
+            return "[key: " + k + ", value: " + v + "]";
         }
     }
 

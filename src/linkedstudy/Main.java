@@ -22,8 +22,9 @@ public class Main {
 
         char[] data4 = Arrays.copyOfRange(data, 1,3);
         for (char c : data4) System.out.println(c);
-        System.out.println(java.util.Arrays.equals(data,data2));
+        System.out.println(java.util.Arrays.equals(data, data2));
         System.out.println(java.util.Arrays.toString(data));
+
 
         int[] dataRandom = new int[100];
         Random random = new Random();
