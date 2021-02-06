@@ -5,7 +5,7 @@ import com.priorityqueue.Entry;
 import java.util.ArrayList;
 
 public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
-    private MapEntry<K,V>[ ] table;    // a fixed array of entries (all initially null)
+    private MapEntry<K,V>[] table;    // a fixed array of entries (all initially null)
     private MapEntry<K,V> DEFUNCT = new MapEntry<>(null, null); //sentinel
     public ProbeHashMap() { super(); }
     public ProbeHashMap(int cap) { super(cap); }
@@ -28,7 +28,7 @@ public class ProbeHashMap<K,V> extends AbstractHashMap<K,V> {
                 if (table[j] == null) break;
             }else if (table[j].getKey().equals(k))
                 return j;
-            j = (j+1) % capacity;
+            j = (j*j) % capacity;  //quadratic probing if we use j=(j+1)%capacity this is a linear probing
         }while (j != h);
         return -(avail+1);
     }

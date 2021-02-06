@@ -3,8 +3,9 @@ package linkedstudy;
 import java.util.Random;
 /**
  *
- * @author: Uğur AKyel
- * */
+ * @author: Uğur Akyel
+ *
+ **/
 
 public class exam {
     public static void main(String[] args){
@@ -13,7 +14,17 @@ public class exam {
 
     }
 
-
+    public static void insertionSort(int[] arr){
+        for (int i = 1; i < arr.length; i++){
+            int current = arr[i];
+            int j = i;
+            while (j > 0 && arr[j-1] > current){  // current den gerri dogru sardırıyoruz.
+                arr[j] = arr[j-1];
+                j--;
+            }
+            arr[j] = current;
+        }
+    }
 
     public static void removedArray(int[] arr){
         Random random = new Random();
